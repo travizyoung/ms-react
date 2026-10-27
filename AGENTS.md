@@ -39,12 +39,15 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
 
 - 包管理器固定为 **pnpm**（`packageManager` 字段锁定版本），锁文件是 `pnpm-lock.yaml`。
   不要提交 `package-lock.json` / `yarn.lock`，也不要在文档或 CI 里用 `npm`。
+- CI：`.github/workflows/ci.yml` 在 push 到 `master`、PR 时跑 `pnpm install --frozen-lockfile`
+  → `pnpm verify` → `pnpm build`，失败即视为不可合并。改了依赖必须同步提交 `pnpm-lock.yaml`。
 
 ## 3. 目录结构
 
 ```
 .
 ├── AGENTS.md                  # 本文件（项目级 agent 指令）
+├── .github/workflows/ci.yml   # CI：pnpm verify + build
 ├── pnpm-lock.yaml             # 唯一锁文件
 ├── docs/
 │   ├── README.md              # 三类载体的分工说明
@@ -128,6 +131,7 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
 ## 5. 交付前自检清单
 
 - [ ] `pnpm verify` 通过（typecheck + lint + test 全绿）
+- [ ] 依赖有变动时 `pnpm-lock.yaml` 一并提交，保证 CI 的 `--frozen-lockfile` 能过
 - [ ] 动过的练习，单测已同步更新且覆盖新行为
 - [ ] 新增 demo 已在 `src/demos/index.ts` 注册，`pnpm dev` 能看到
 - [ ] 新增知识点文档已加进 `docs/knowledge/README.md` 索引
