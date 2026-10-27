@@ -33,4 +33,19 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: '答题 SOP（本题）' })).toBeInTheDocument()
     expect(screen.getAllByText(/双线程/).length).toBeGreaterThan(0)
   })
+
+  it('切换到 hooks demo 时渲染对应文档与答题 SOP', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(
+      screen.getByRole('button', { name: 'React Hooks：19 个内置 hooks 与使用场景' }),
+    )
+
+    expect(
+      screen.getByRole('heading', { name: 'React Hooks：19 个内置 hooks 与使用场景' }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '答题 SOP（本题）' })).toBeInTheDocument()
+    expect(screen.getAllByText(/useSyncExternalStore/).length).toBeGreaterThan(0)
+  })
 })
