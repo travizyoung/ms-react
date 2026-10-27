@@ -9,7 +9,7 @@
 
 | 载体 | 位置 | 作用 |
 | --- | --- | --- |
-| 理论笔记 / 面试问答 | `docs/knowledge/<slug>.md` | 结论、原理、追问、易错点 |
+| 理论笔记 / 面试问答 | `docs/knowledge/<slug>.md` | 结论、原理、答题 SOP、追问、易错点 |
 | 可运行验证 | `src/demos/<slug>/` | 用最小代码跑出结论，页面可见 |
 | 手写练习 + 单测 | `src/exercises/<name>/` | 非理论知识点（手写实现）的刻意练习 |
 
@@ -51,6 +51,7 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
 ├── pnpm-lock.yaml             # 唯一锁文件
 ├── docs/
 │   ├── README.md              # 三类载体的分工说明
+│   ├── answer-sop.md          # 通用面试答题 SOP（五段式 / 分题型 / 自查清单）
 │   └── knowledge/             # 每个知识点一个 md + README.md 索引
 ├── src/
 │   ├── main.tsx               # 入口
@@ -92,7 +93,9 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
 用户给出一个知识点（如「事件循环」「useEffect 依赖」）时：
 
 1. `docs/knowledge/<slug>.md`：按 `docs/knowledge/README.md` 的模板写，
-   开头一句可直接背的结论，然后原理、可运行验证指引、常见面试题、易错点。
+   开头一句可直接背的结论，然后原理、可运行验证指引、常见面试题、易错点；
+   并且**必须包含「## 答题 SOP」一节**：30 秒版、60~120 秒标准版分层、追问分支，
+   按 `docs/answer-sop.md` 的五段式具体化到本题，不允许只写通用套话。
 2. `src/demos/<slug>/`：写最小可运行验证（`Demo.tsx` + `index.ts` 元信息），
    在 `src/demos/index.ts` 注册；`topic` 填 slug。
 3. 若该知识点有「可手写」的部分 → `src/exercises/<name>/` 实现 + 单测。
@@ -134,5 +137,5 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
 - [ ] 依赖有变动时 `pnpm-lock.yaml` 一并提交，保证 CI 的 `--frozen-lockfile` 能过
 - [ ] 动过的练习，单测已同步更新且覆盖新行为
 - [ ] 新增 demo 已在 `src/demos/index.ts` 注册，`pnpm dev` 能看到
-- [ ] 新增知识点文档已加进 `docs/knowledge/README.md` 索引
+- [ ] 新增知识点文档已加进 `docs/knowledge/README.md` 索引，且包含「答题 SOP」（30 秒版 + 分层 + 追问分支）
 - [ ] 没有 `any`、没有注释掉的死代码、没有占位测试

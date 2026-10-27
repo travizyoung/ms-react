@@ -2,7 +2,9 @@
 
 这个目录是 React 面试知识库的**理论侧**。
 
-- `knowledge/` —— 每个知识点一个 md：结论、原理、常见面试题、易错点。见 [knowledge/README.md](./knowledge/README.md) 的模板与索引。
+- `answer-sop.md` —— 通用面试答题 SOP（五段式、分题型变体、扣分点、自查清单）。
+- `knowledge/` —— 每个知识点一个 md：结论、原理、常见面试题、易错点，以及**针对本题的答题 SOP**。
+  见 [knowledge/README.md](./knowledge/README.md) 的模板与索引。
 
 理论之外的三种载体：
 
