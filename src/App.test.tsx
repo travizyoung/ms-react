@@ -25,10 +25,10 @@ describe('App', () => {
     const user = userEvent.setup()
     render(<App />)
 
-    await user.click(screen.getByRole('button', { name: '性能优化：长列表与 setData' }))
+    await user.click(screen.getByRole('button', { name: '性能优化：长列表、setData 与 React 渲染' }))
 
     expect(
-      screen.getByRole('heading', { name: '性能优化：长列表与 setData' }),
+      screen.getByRole('heading', { name: '性能优化：长列表、setData 与 React 渲染' }),
     ).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: '答题 SOP（本题）' })).toBeInTheDocument()
     expect(screen.getAllByText(/双线程/).length).toBeGreaterThan(0)

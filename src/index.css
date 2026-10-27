@@ -412,3 +412,32 @@ code {
 .metric-table th {
   background: rgba(127, 127, 127, 0.1);
 }
+
+.perf-rows-inline {
+  display: flex;
+  flex-direction: column;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  max-width: 640px;
+}
+
+.perf-rows-inline .perf-row {
+  width: 100%;
+  text-align: left;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.perf-rows-inline .perf-row.active {
+  border-color: #646cff;
+  color: #646cff;
+}
