@@ -1,0 +1,8 @@
+import type { Demo } from './types'
+import { demo as helloReact } from './hello-react'
+
+/**
+ * 所有可运行 demo 的注册表。新增 demo 后在这里追加一行。
+ * 顺序即侧边栏展示顺序。
+ */
+export const demos: Demo[] = [helloReact]
