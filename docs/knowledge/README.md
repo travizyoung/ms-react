@@ -32,4 +32,5 @@
 
 | slug | 标题 | demo | 相关练习 |
 | --- | --- | --- | --- |
+| `virtual-dom` | 虚拟 DOM（VNode / diff / key） | `src/demos/virtual-dom/` | `src/exercises/vdom/` |
 | `hello-react` | Demo 目录约定（示例） | `src/demos/hello-react/` | — |
