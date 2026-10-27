@@ -14,7 +14,7 @@
 
 ## 可运行验证
 
-见 `src/demos/<slug>/`（`npm run dev` 打开对应条目）。
+见 `src/demos/<slug>/`（`pnpm dev` 打开对应条目）。
 
 ## 常见面试题
 

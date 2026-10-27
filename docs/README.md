@@ -9,8 +9,8 @@
 | 需求 | 位置 | 命令 |
 | --- | --- | --- |
 | 理论笔记 / 面试问答 | `docs/knowledge/<slug>.md` | — |
-| 可运行的原理验证 | `src/demos/<slug>/` | `npm run dev` |
-| 手写练习题（带 vitest） | `src/exercises/<name>/` | `npm test` |
+| 可运行的原理验证 | `src/demos/<slug>/` | `pnpm dev` |
+| 手写练习题（带 vitest） | `src/exercises/<name>/` | `pnpm test` |
 
 约定：知识点 slug 在三处保持一致，方便互相跳转，例如 `event-loop` →
 `docs/knowledge/event-loop.md` + `src/demos/event-loop/`。

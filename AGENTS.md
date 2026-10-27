@@ -27,20 +27,25 @@
 - 测试文件匹配：`src/**/*.{test,spec}.{ts,tsx}`
 
 ```bash
-npm run dev            # dev server（demo 站点）
-npm run build          # tsc -b + vite build
-npm run typecheck      # tsc -b
-npm run lint           # oxlint
-npm test               # vitest run（单次）
-npm run test:watch     # vitest watch
-npm run verify         # typecheck + lint + test —— 交付前必跑
+pnpm install           # 安装依赖（本项目只使用 pnpm，不要用 npm / yarn）
+pnpm dev               # dev server（demo 站点）
+pnpm build             # tsc -b + vite build
+pnpm typecheck         # tsc -b
+pnpm lint              # oxlint
+pnpm test              # vitest run（单次）
+pnpm test:watch        # vitest watch
+pnpm verify            # typecheck + lint + test —— 交付前必跑
 ```
+
+- 包管理器固定为 **pnpm**（`packageManager` 字段锁定版本），锁文件是 `pnpm-lock.yaml`。
+  不要提交 `package-lock.json` / `yarn.lock`，也不要在文档或 CI 里用 `npm`。
 
 ## 3. 目录结构
 
 ```
 .
 ├── AGENTS.md                  # 本文件（项目级 agent 指令）
+├── pnpm-lock.yaml             # 唯一锁文件
 ├── docs/
 │   ├── README.md              # 三类载体的分工说明
 │   └── knowledge/             # 每个知识点一个 md + README.md 索引
@@ -74,7 +79,7 @@ npm run verify         # typecheck + lint + test —— 交付前必跑
   新增练习必须同时写单测。
 - **任何练习实现的改动（行为、签名、边界、性能优化、重命名）都必须同步更新对应单测**，
   并在同一次改动内完成。不允许「先改实现，测试回头再说」。
-- 改完必须实际执行 `npm test`（或 `npm run verify`）并确认通过，不得只声称通过。
+- 改完必须实际执行 `pnpm test`（或 `pnpm verify`）并确认通过，不得只声称通过。
 - 单测至少覆盖：happy path、边界值（空/0/负数/重复调用）、异常或降级路径；
   至少一个断言能捕获回归（不允许 `expect(true).toBe(true)` 之类占位测试）。
 - 禁止用 `toMatchSnapshot()` 作为唯一断言。
@@ -122,8 +127,8 @@ npm run verify         # typecheck + lint + test —— 交付前必跑
 
 ## 5. 交付前自检清单
 
-- [ ] `npm run verify` 通过（typecheck + lint + test 全绿）
+- [ ] `pnpm verify` 通过（typecheck + lint + test 全绿）
 - [ ] 动过的练习，单测已同步更新且覆盖新行为
-- [ ] 新增 demo 已在 `src/demos/index.ts` 注册，`npm run dev` 能看到
+- [ ] 新增 demo 已在 `src/demos/index.ts` 注册，`pnpm dev` 能看到
 - [ ] 新增知识点文档已加进 `docs/knowledge/README.md` 索引
 - [ ] 没有 `any`、没有注释掉的死代码、没有占位测试
