@@ -1,5 +1,7 @@
 # ms-react
 
+[![CI](https://github.com/travizyoung/ms-react/actions/workflows/ci.yml/badge.svg)](https://github.com/travizyoung/ms-react/actions/workflows/ci.yml)
+
 React 面试题知识库：理论笔记 + 可运行验证 + 带单测的手写练习。
 
 ```bash
