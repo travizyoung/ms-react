@@ -48,4 +48,17 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: '答题 SOP（本题）' })).toBeInTheDocument()
     expect(screen.getAllByText(/useSyncExternalStore/).length).toBeGreaterThan(0)
   })
+
+  it('切换到 Fiber demo 时渲染对应文档与答题 SOP', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'React 核心与 Fiber：可中断的协调' }))
+
+    expect(
+      screen.getByRole('heading', { name: 'React 核心与 Fiber：可中断的协调' }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '答题 SOP（本题）' })).toBeInTheDocument()
+    expect(screen.getAllByText(/workInProgress/).length).toBeGreaterThan(0)
+  })
 })

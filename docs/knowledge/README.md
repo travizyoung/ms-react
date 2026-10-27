@@ -53,4 +53,5 @@
 | `virtual-dom` | 虚拟 DOM（VNode / diff / key） | `src/demos/virtual-dom/` | `src/exercises/vdom/` |
 | `performance` | 性能优化（H5 + React + 小程序） | `src/demos/performance/` | `src/exercises/virtual-list/`、`src/exercises/set-data-scheduler/`、`src/exercises/shallow-equal/` |
 | `hooks` | React Hooks 全景与使用场景 | `src/demos/hooks/` | `src/exercises/use-previous/`、`src/exercises/use-debounced-value/`、`src/exercises/use-toggle/` |
+| `react-fiber` | React 的核心与 Fiber | `src/demos/react-fiber/` | `src/exercises/fiber-work-loop/` |
 | `hello-react` | Demo 目录约定（示例） | `src/demos/hello-react/` | — |
