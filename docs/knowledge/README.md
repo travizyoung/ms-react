@@ -51,4 +51,5 @@
 | slug | 标题 | demo | 相关练习 |
 | --- | --- | --- | --- |
 | `virtual-dom` | 虚拟 DOM（VNode / diff / key） | `src/demos/virtual-dom/` | `src/exercises/vdom/` |
+| `performance` | 性能优化（H5 + 小程序） | `src/demos/performance/` | `src/exercises/virtual-list/`、`src/exercises/set-data-scheduler/` |
 | `hello-react` | Demo 目录约定（示例） | `src/demos/hello-react/` | — |

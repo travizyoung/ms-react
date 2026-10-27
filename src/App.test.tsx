@@ -20,4 +20,17 @@ describe('App', () => {
 
     expect(screen.queryByRole('heading', { name: '答题 SOP（本题）' })).not.toBeInTheDocument()
   })
+
+  it('切换到性能优化 demo 时渲染对应文档与答题 SOP', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: '性能优化：长列表与 setData' }))
+
+    expect(
+      screen.getByRole('heading', { name: '性能优化：长列表与 setData' }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '答题 SOP（本题）' })).toBeInTheDocument()
+    expect(screen.getAllByText(/双线程/).length).toBeGreaterThan(0)
+  })
 })
