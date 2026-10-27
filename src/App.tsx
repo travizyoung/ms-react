@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TopicSections } from './components/TopicSections'
 import { demos } from './demos'
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
               ) : null}
             </header>
             <active.Component />
+            <TopicSections topic={active.topic} />
           </article>
         ) : (
           <p>还没有 demo，去 src/demos 下新建一个并在 src/demos/index.ts 注册。</p>

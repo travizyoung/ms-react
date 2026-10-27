@@ -212,3 +212,157 @@ code {
     grid-template-columns: 1fr;
   }
 }
+
+/* 知识点页面：文档区（答题 SOP + 完整笔记） */
+.topic-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.doc-section {
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  border-radius: 0.6rem;
+  padding: 1rem 1.25rem;
+}
+
+.doc-section > h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.doc-details {
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  border-radius: 0.6rem;
+  padding: 0.6rem 1rem;
+}
+
+.doc-details[open] {
+  padding-bottom: 1rem;
+}
+
+.doc-details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.doc-details > .markdown {
+  margin-top: 0.75rem;
+}
+
+/* 极简 markdown 渲染样式 */
+.markdown {
+  max-width: 78ch;
+  font-size: 0.92rem;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  margin: 1.2em 0 0.4em;
+  line-height: 1.35;
+}
+
+.markdown h2 {
+  font-size: 1.1rem;
+}
+
+.markdown h3 {
+  font-size: 1rem;
+}
+
+.markdown h4 {
+  font-size: 0.92rem;
+}
+
+.markdown p {
+  margin: 0.5em 0;
+  white-space: pre-wrap;
+}
+
+.markdown blockquote {
+  margin: 0.6em 0;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid #646cff;
+  background: rgba(100, 108, 255, 0.08);
+  white-space: pre-wrap;
+}
+
+.markdown blockquote p {
+  margin: 0;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 0.5em 0;
+  padding-left: 1.4rem;
+}
+
+.markdown li {
+  margin: 0.2em 0;
+}
+
+.markdown-code {
+  margin: 0.6em 0;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(127, 127, 127, 0.12);
+  font-size: 0.78rem;
+  overflow: auto;
+}
+
+.markdown code {
+  padding: 0.1em 0.3em;
+  border-radius: 0.25rem;
+  background: rgba(127, 127, 127, 0.15);
+}
+
+.markdown-code code {
+  padding: 0;
+  background: none;
+}
+
+.markdown-table-wrap {
+  overflow-x: auto;
+  margin: 0.75em 0;
+}
+
+.markdown table {
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.markdown th,
+.markdown td {
+  border: 1px solid rgba(127, 127, 127, 0.4);
+  padding: 0.3rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown th {
+  background: rgba(127, 127, 127, 0.1);
+}
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid rgba(127, 127, 127, 0.35);
+  margin: 1rem 0;
+}
+
+.markdown a {
+  color: #646cff;
+}
+
+.markdown .markdown-file-link {
+  border-bottom: 1px dashed currentColor;
+  opacity: 0.85;
+  cursor: help;
+}
+
+.markdown h1 {
+  font-size: 1.25rem;
+}

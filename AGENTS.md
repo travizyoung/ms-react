@@ -63,6 +63,11 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
 │   │   └── <slug>/
 │   │       ├── Demo.tsx       # demo 组件（默认导出）
 │   │       └── index.ts       # 导出 demo 元信息 { id, title, summary, topic?, Component }
+│   ├── components/
+│   │   └── TopicSections.tsx  # 知识点页面文档区：本题 SOP（展开）+ 通用 SOP/完整笔记（折叠）
+│   ├── content/docs.ts        # ?raw 读取 docs/*.md + 提取二级标题节：页面与文档共用一份内容
+│   ├── lib/markdown.tsx       # 极简 markdown 渲染（标题/段落/列表/代码/引用/表格/行内）
+│   ├── lib/markdown-parse.ts  # 上述渲染器的纯解析层（可单测）
 │   ├── exercises/
 │   │   ├── README.md          # 练习约定（必读）
 │   │   └── <name>/
@@ -97,7 +102,8 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
    并且**必须包含「## 答题 SOP」一节**：30 秒版、60~120 秒标准版分层、追问分支，
    按 `docs/answer-sop.md` 的五段式具体化到本题，不允许只写通用套话。
 2. `src/demos/<slug>/`：写最小可运行验证（`Demo.tsx` + `index.ts` 元信息），
-   在 `src/demos/index.ts` 注册；`topic` 填 slug。
+   在 `src/demos/index.ts` 注册；`topic` 填 slug。demo 站点会自动读取该 md，
+   在页面下方渲染「答题 SOP（本题）+ 通用 SOP + 完整笔记」—— **不要另写一份页面文案**。
 3. 若该知识点有「可手写」的部分 → `src/exercises/<name>/` 实现 + 单测。
 4. 更新 `docs/knowledge/README.md` 索引表（slug / 标题 / demo / 相关练习）。
 
@@ -136,6 +142,6 @@ pnpm verify            # typecheck + lint + test —— 交付前必跑
 - [ ] `pnpm verify` 通过（typecheck + lint + test 全绿）
 - [ ] 依赖有变动时 `pnpm-lock.yaml` 一并提交，保证 CI 的 `--frozen-lockfile` 能过
 - [ ] 动过的练习，单测已同步更新且覆盖新行为
-- [ ] 新增 demo 已在 `src/demos/index.ts` 注册，`pnpm dev` 能看到
+- [ ] 新增 demo 已在 `src/demos/index.ts` 注册，`pnpm dev` 能看到 demo 与「答题 SOP」区
 - [ ] 新增知识点文档已加进 `docs/knowledge/README.md` 索引，且包含「答题 SOP」（30 秒版 + 分层 + 追问分支）
 - [ ] 没有 `any`、没有注释掉的死代码、没有占位测试
